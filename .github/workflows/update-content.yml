@@ -5,7 +5,7 @@ on:
   workflow_dispatch:  # 手動実行用
 
 jobs:
-  build:
+  update-content:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -16,11 +16,12 @@ jobs:
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0  # 全履歴を取得
 
       - name: Gitコンフィグを設定
         run: |
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git config --global user.name "GitHub Actions Bot"
+          git config --global user.name 'GitHub Actions Bot'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
 
       - name: Pythonをセットアップ
         uses: actions/setup-python@v5
@@ -41,10 +42,20 @@ jobs:
           CLAUDE_API_KEY: ${{ secrets.CLAUDE_API_KEY }}
         run: python scripts/generate_content.py
 
+      - name: 変更の確認
+        id: check-changes
+        run: |
+          if [[ -n "$(git status --porcelain)" ]]; then
+            echo "changes=true" >> $GITHUB_OUTPUT
+          else
+            echo "changes=false" >> $GITHUB_OUTPUT
+          fi
+
       - name: 変更をコミットしてプッシュ
+        if: steps.check-changes.outputs.changes == 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git add -A
-          git diff --quiet && git diff --staged --quiet || git commit -m "コンテンツ更新 $(date +%Y-%m-%d)"
+          git commit -m "コンテンツ更新 $(date +%Y-%m-%d)"
           git push origin HEAD:main
