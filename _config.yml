@@ -1,0 +1,38 @@
+# サイト基本情報
+title: Claude実践ラボ
+description: Claudeを活用した資料作成・プログラミング・サービス開発の実践ガイド
+baseurl: "/claude-dev-lab-jp"
+url: "https://あなたのGitHubユーザー名.github.io"
+github_username: あなたのGitHubユーザー名
+lang: ja
+
+# テーマ設定
+remote_theme: jekyll/minima
+minima:
+  skin: classic
+
+# プラグイン設定
+plugins:
+  - jekyll-feed
+  - jekyll-remote-theme
+  - jekyll-seo-tag
+
+# ナビゲーション設定
+header_pages:
+  - about.md
+  - categories.md
+  - tags.md
+
+# 記事設定
+permalink: /:year/:month/:day/:title/
+timezone: Asia/Tokyo
+
+# 除外ファイル
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - scripts/
+  - .gitignore
+  sass:
+  style: compressed
