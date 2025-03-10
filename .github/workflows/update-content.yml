@@ -1,8 +1,8 @@
 name: 週次コンテンツ更新
 on:
   schedule:
-    - cron: '0 1 * * 1,4' # 月曜と木曜の午前1時（UTC）= 日本時間10時
-  workflow_dispatch: # 手動実行用
+    - cron: '0 1 * * 1,4'  # 月曜と木曜の午前1時（UTC）= 日本時間10時
+  workflow_dispatch:  # 手動実行用
 jobs:
   build:
     runs-on: ubuntu-latest
