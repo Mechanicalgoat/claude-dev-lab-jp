@@ -10,7 +10,7 @@ on:
     steps:
       - name: リポジトリをチェックアウト
         uses: actions/checkout@v3
-        - name: Pythonをセットアップ
+        name: Pythonをセットアップ
         uses: actions/setup-python@v4
         with:
           python-version: '3.10'
