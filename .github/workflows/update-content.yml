@@ -1,39 +1,50 @@
 name: 週次コンテンツ更新
 on:
   schedule:
-    - cron: '0 1 * * 1,4'  # 月曜と木曜の午前1時（UTC）= 日本時間10時
+    - cron: '0 1 * *1,4'  # 月曜と木曜の午前1時（UTC）= 日本時間10時
   workflow_dispatch:  # 手動実行用
+
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
     steps:
       - name: リポジトリをチェックアウト
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Gitコンフィグを設定
+        run: |
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "GitHub Actions Bot"
+
       - name: Pythonをセットアップ
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: '3.10'
+          cache: 'pip'
+
       - name: 依存パッケージをインストール
         run: |
           python -m pip install --upgrade pip
-          pip install requests markdown pandas beautifulsoup4
+          pip install requests markdown pandas beautifulsoup4 anthropic
+
       - name: データを収集
         run: python scripts/collect_data.py
+
       - name: コンテンツを生成
         env:
           CLAUDE_API_KEY: ${{ secrets.CLAUDE_API_KEY }}
         run: python scripts/generate_content.py
+
       - name: 変更をコミットしてプッシュ
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
           git add -A
           git diff --quiet && git diff --staged --quiet || git commit -m "コンテンツ更新 $(date +%Y-%m-%d)"
-          git push
-permissions:
-  contents: write
-  pull-requests: write
-- name: Configure Git
-  run: |
-    git config --local user.email "github-actions[bot]@users.noreply.github.com"
-    git config --local user.name "github-actions[bot]"
+          git push origin HEAD:main
