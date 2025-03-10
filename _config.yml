@@ -34,5 +34,5 @@ exclude:
   - README.md
   - scripts/
   - .gitignore
-  sass:
+sass:
   style: compressed
