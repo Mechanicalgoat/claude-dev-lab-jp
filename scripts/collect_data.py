@@ -1,3 +1,10 @@
+import os
+import json
+import requests
+
+# 収集したデータを格納するリスト
+examples = []
+
 def collect_from_github():
     print("GitHubからデータを収集中...")
     try:
@@ -35,6 +42,7 @@ def collect_from_github():
             })
     except Exception as e:
         print(f"データ収集中にエラーが発生しました: {e}")
+
 def add_document_examples():
     examples.append({
         "id": "manual-doc-1",
@@ -47,7 +55,30 @@ def add_document_examples():
         "processed": False
     })
     
-    # 2つ目の手動エントリ...（省略）
+    # 2つ目の手動エントリを追加
+    examples.append({
+        "id": "manual-doc-2",
+        "title": "レポート・論文作成のためのClaude活用テクニック",
+        "description": "学術・研究文書の質を高めるClaude活用法",
+        "usage": "学生・研究者向けの文書作成支援",
+        "source_url": "",
+        "category": "資料作成",
+        "tags": ["学術", "論文", "研究"],
+        "processed": False
+    })
+
+def add_service_examples():
+    examples.append({
+        "id": "service-example-1",
+        "title": "Claudeを活用したコンテンツ自動生成サービス",
+        "description": "ブログ・SNS投稿を効率的に作成するWebサービス事例",
+        "usage": "マーケティング・コンテンツ制作の効率化",
+        "source_url": "",
+        "category": "サービス開発",
+        "tags": ["コンテンツ作成", "マーケティング", "自動化"],
+        "processed": False
+    })
+
 def save_data():
     # _dataディレクトリがなければ作成
     os.makedirs("_data", exist_ok=True)
@@ -58,13 +89,10 @@ def save_data():
         print(f"データを保存しました: _data/collected_examples.json")
     except Exception as e:
         print(f"データ保存中にエラーが発生しました: {e}")
+
 if __name__ == "__main__":
     collect_from_github()
     add_document_examples()
     add_service_examples()
     save_data()
     print(f"{len(examples)}件の事例を収集しました")
-query = "claude anthropic YOUR_NICHE_KEYWORD"
-params={"q": query, "sort": "stars", "per_page": 5}  # 5を調整
-"category": "あなたのカテゴリー名",
-"tags": ["タグ1", "タグ2", "タグ3"],
