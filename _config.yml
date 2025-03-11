@@ -2,8 +2,8 @@
 title: Claude実践ラボ
 description: Claudeを活用した資料作成・プログラミング・サービス開発の実践ガイド
 baseurl: "/claude-dev-lab-jp"
-url: "https://あなたのGitHubユーザー名.github.io"
-github_username: あなたのGitHubユーザー名
+url: "https://[あなたの実際のGitHubユーザー名].github.io"
+github_username: [あなたの実際のGitHubユーザー名]
 lang: ja
 
 # テーマ設定
