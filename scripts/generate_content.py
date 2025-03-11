@@ -127,8 +127,8 @@ URL: {example.get('source_url', 'なし')}
             category_slug = slugify(example['category'])
             filename = f"_posts/{date_str}-{slug}.md"
             
-            with open(filename, 'w', encoding='utf-8') as f:
-                f.write(f"""---
+with open(filename, 'w', encoding='utf-8') as f:
+    f.write(f"""---
 layout: post
 title: "{example['title']}"
 date: {current_date.strftime('%Y-%m-%d %H:%M:%S +0900')}
