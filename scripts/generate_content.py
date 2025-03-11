@@ -1,7 +1,17 @@
 import os
 import json
 import requests
+import time
+import re
 from datetime import datetime
+
+def slugify(text):
+    """URLフレンドリーなスラグを作成"""
+    # 英数字以外を'-'に置換し、連続した'-'を単一の'-'にする
+    slug = re.sub(r'[^a-zA-Z0-9]+', '-', text.lower())
+    # 先頭と末尾の'-'を削除
+    slug = slug.strip('-')
+    return slug
 
 def generate_content():
     # 環境変数からAPIキーを取得
@@ -33,15 +43,25 @@ def generate_content():
         examples = []
 
     processed_count = 0
+    max_to_process = 2  # 1回のワークフローで生成する記事数の上限
+
+    # _postsディレクトリがなければ作成
+    os.makedirs("_posts", exist_ok=True)
 
     # 各エクサンプルを処理
     for example in examples:
+        # 処理済みまたは上限に達している場合はスキップ
+        if example.get('processed', False) or processed_count >= max_to_process:
+            continue
+
         # カテゴリに応じてプロンプトをカスタマイズ
         category = example.get('category', '')
         if category == "プログラミング":
             category_prompt = "特にプログラミングと開発の視点から、コード例やベストプラクティスを含めて"
         elif category == "資料作成":
             category_prompt = "特にビジネス文書作成の視点から、実践的なプロンプト例と構成テクニックを含めて"
+        elif category == "サービス開発":
+            category_prompt = "特にサービス開発とAPI連携の視点から、実装例とユースケースを含めて"
         else:
             category_prompt = ""
 
@@ -61,49 +81,66 @@ def generate_content():
 使用方法: {example['usage']}
 URL: {example.get('source_url', 'なし')}
 実践的で具体的な内容にし、読者が即実践できるようにしてください。必要に応じて図表や具体例を含め、技術的に正確な内容にしてください。
+また、Markdownフォーマットで作成し、適切な見出し（##, ###）を使用してください。
 """
-        
-        # 処理済みまたは上限に達している場合はスキップ
-        if example.get('processed', False) or processed_count >= 2:
-            continue
 
         try:
-            print("Claude APIにリクエストを送信中...")
-            response = requests.post(
-                'https://api.anthropic.com/v1/messages',
-                headers=headers,
-                json={
-                    'model': 'claude-3-5-sonnet-20240620',  # コスパの良いモデル
-                    'max_tokens': 1500,  # 出力を制限してコスト削減
-                    'messages': [{'role': 'user', 'content': prompt}]
-                }
-            )
+            print(f"Claude APIにリクエストを送信中... タイトル: {example['title']}")
             
-            # エラー処理とレスポンス解析
-            if response.status_code != 200:
-                print(f"API呼び出しエラー: ステータスコード {response.status_code}")
-                print(f"レスポンス: {response.text}")
-                continue
+            # 最大3回まで再試行
+            max_retries = 3
+            for attempt in range(max_retries):
+                try:
+                    response = requests.post(
+                        'https://api.anthropic.com/v1/messages',
+                        headers=headers,
+                        json={
+                            'model': 'claude-3-haiku-20240307',  # 最新の低コストモデル
+                            'max_tokens': 1500,  # 出力を制限してコスト削減
+                            'messages': [{'role': 'user', 'content': prompt}]
+                        },
+                        timeout=60  # タイムアウト設定
+                    )
+                    response.raise_for_status()  # HTTPエラーを例外として発生
+                    break  # 成功したらループ終了
+                except (requests.exceptions.RequestException, requests.exceptions.HTTPError) as e:
+                    if attempt < max_retries - 1:
+                        wait_time = (attempt + 1) * 10  # バックオフ戦略
+                        print(f"APIリクエスト失敗 ({e}). {wait_time}秒後に再試行します ({attempt+1}/{max_retries})")
+                        time.sleep(wait_time)
+                    else:
+                        print(f"最大再試行回数に達しました。このアイテムをスキップします: {example['title']}")
+                        raise
             
+            # レスポンス解析
             response_data = response.json()
             content = response_data['content'][0]['text']
             
             # Jekyllの記事として保存
-            date_str = datetime.now().strftime('%Y-%m-%d')
-            slug = example['id'].lower().replace(' ', '-')
+            current_date = datetime.now()
+            date_str = current_date.strftime('%Y-%m-%d')
+            
+            # ファイル名に使用できるスラグを作成
+            slug = slugify(example['id'])
+            
+            # ファイル名作成とカテゴリのスラグ化
+            category_slug = slugify(example['category'])
             filename = f"_posts/{date_str}-{slug}.md"
             
             with open(filename, 'w', encoding='utf-8') as f:
                 f.write(f"""---
 layout: post
 title: "{example['title']}"
-date: {datetime.now().strftime('%Y-%m-%d %H:%M:%S +0900')}
+date: {current_date.strftime('%Y-%m-%d %H:%M:%S +0900')}
 categories: {example['category']}
 tags: {json.dumps(example['tags'], ensure_ascii=False)}
 source_url: "{example.get('source_url', '')}"
 ---
+
 {content}
 """)
+            
+            print(f"記事を生成しました: {filename}")
             
             # 処理済みとしてマーク
             example['processed'] = True
