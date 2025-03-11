@@ -36,3 +36,5 @@ exclude:
   - .gitignore
 sass:
   style: compressed
+liquid:
+  error_mode: strict
