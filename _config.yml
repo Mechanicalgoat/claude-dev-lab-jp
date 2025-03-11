@@ -7,9 +7,10 @@ github_username: [あなたの実際のGitHubユーザー名]
 lang: ja
 
 # テーマ設定
-# GitHub Pagesで利用可能なテーマに変更
 theme: minima
-# remote_themeは削除または無効化
+# remote_theme: jekyll/minima 
+minima:
+  skin: classic
 
 # プラグイン設定
 plugins:
