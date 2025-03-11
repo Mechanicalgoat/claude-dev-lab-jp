@@ -124,17 +124,18 @@ URL: {example.get('source_url', 'なし')}
             slug = slugify(example['id'])
             
             # ファイル名作成とカテゴリのスラグ化
-            category_slug = slugify(example['category'])
             filename = f"_posts/{date_str}-{slug}.md"
             
-with open(filename, 'w', encoding='utf-8') as f:
-    f.write(f"""---
+            # タグを適切な形式に変換
+            tags_formatted = ', '.join([f'"{tag}"' for tag in example['tags']])
+            
+            with open(filename, 'w', encoding='utf-8') as f:
+                f.write(f"""---
 layout: post
 title: "{example['title']}"
 date: {current_date.strftime('%Y-%m-%d %H:%M:%S +0900')}
 categories: {example['category']}
-tags: {json.dumps(example['tags'], ensure_ascii=False)}
-source_url: "{example.get('source_url', '')}"
+tags: [{tags_formatted}]
 ---
 
 {content}
