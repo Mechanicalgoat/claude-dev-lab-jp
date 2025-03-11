@@ -32,7 +32,11 @@ jobs:
       - name: 依存パッケージをインストール
         run: |
           python -m pip install --upgrade pip
-          pip install requests markdown pandas beautifulsoup4 anthropic
+          if [ -f requirements.txt ]; then
+            pip install -r requirements.txt
+          else
+            pip install requests markdown pandas beautifulsoup4 anthropic
+          fi
 
       - name: データを収集
         env:
