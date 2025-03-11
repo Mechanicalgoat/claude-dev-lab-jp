@@ -1,7 +1,7 @@
 name: 週次コンテンツ更新
 on:
   schedule:
-    - cron: '0 1 * *1,4'  # 月曜と木曜の午前1時（UTC）= 日本時間10時
+    - cron: '0 1 * * 1,4'  # 月曜と木曜の午前1時（UTC）= 日本時間10時
   workflow_dispatch:  # 手動実行用
 
 jobs:
@@ -35,6 +35,8 @@ jobs:
           pip install requests markdown pandas beautifulsoup4 anthropic
 
       - name: データを収集
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # GitHub APIへのアクセス用
         run: python scripts/collect_data.py
 
       - name: コンテンツを生成
