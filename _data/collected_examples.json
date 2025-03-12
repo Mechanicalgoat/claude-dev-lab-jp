@@ -39,7 +39,7 @@
       "マーケティング",
       "自動化"
     ],
-    "processed": false
+    "processed": true
   },
   {
     "id": "claude-api-integration",
@@ -53,6 +53,6 @@
       "システム開発",
       "実装例"
     ],
-    "processed": false
+    "processed": true
   }
 ]
