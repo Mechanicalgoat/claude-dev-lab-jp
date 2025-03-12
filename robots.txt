@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mechanicalgoat.github.io/claude-dev-lab-jp/sitemap.xml
