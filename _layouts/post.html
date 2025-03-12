@@ -3,24 +3,40 @@ layout: default
 ---
 <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
-  <header class="post-header">
-    <div class="container">
-      <div class="post-meta-top">
-        <span class="post-category">{{ page.categories }}</span>
-        <time class="post-date dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-          {{ page.date | date: "%Y年%m月%d日" }}
-        </time>
-      </div>
-      
-      <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
-      
-      <div class="post-tags">
-        {% for tag in page.tags %}
-          <a href="{{ site.baseurl }}/tags/#{{ tag | slugify }}" class="post-tag">{{ tag }}</a>
-        {% endfor %}
-      </div>
+<header class="post-header">
+  <div class="container">
+    <div class="post-meta-top">
+      <span class="post-category">{{ page.categories }}</span>
+      <time class="post-date dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+        {{ page.date | date: "%Y年%m月%d日" }}
+      </time>
     </div>
-  </header>
+    
+    <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
+    
+    <div class="post-tags">
+      {% for tag in page.tags %}
+        <a href="{{ site.baseurl }}/tags/#{{ tag | slugify }}" class="post-tag">{{ tag }}</a>
+      {% endfor %}
+    </div>
+    
+    {% if page.thumbnail or page.image %}
+    <div class="post-thumbnail">
+      <img src="{{ page.thumbnail | default: page.image | default: site.default_thumbnail | relative_url }}" 
+           alt="{{ page.title }}" loading="lazy">
+    </div>
+    {% else %}
+      {% if site.auto_thumbnail %}
+      <div class="post-thumbnail">
+        <div class="thumbnail-placeholder">
+          <div class="icon"><i class="fas fa-file-alt"></i></div>
+          <div>{{ page.categories }}</div>
+        </div>
+      </div>
+      {% endif %}
+    {% endif %}
+  </div>
+</header>
 
   <div class="container">
     <div class="post-wrapper">
