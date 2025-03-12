@@ -38,3 +38,16 @@ sass:
   style: compressed
 liquid:
   error_mode: strict
+# 画像関連設定
+default_image: "/claude-dev-lab-jp/assets/images/og-default.jpg"
+default_thumbnail: "/claude-dev-lab-jp/assets/images/thumbnails/default-thumb.jpg"
+logo_image: "/claude-dev-lab-jp/assets/images/logo.png"
+
+# 画像サイズ設定
+thumbnail_width: 800
+thumbnail_height: 450
+og_image_width: 1200
+og_image_height: 630
+
+# 自動サムネイル生成の有効化
+auto_thumbnail: true
