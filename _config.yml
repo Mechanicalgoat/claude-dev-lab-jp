@@ -51,3 +51,10 @@ og_image_height: 630
 
 # 自動サムネイル生成の有効化
 auto_thumbnail: true
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      thumbnail: "/claude-dev-lab-jp/assets/images/thumbnails/default-thumb.png"
