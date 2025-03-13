@@ -161,3 +161,29 @@ tags: [{tags_formatted}]
 
 if __name__ == "__main__":
     generate_content()
+# 既存のスクリプトに以下のコードを追加
+
+# カテゴリごとのデフォルトサムネイル
+category_thumbnails = {
+    "資料作成": "/assets/images/thumbnails/document/default.jpg",
+    "サービス開発": "/assets/images/thumbnails/service/default.jpg",
+    "プログラミング": "/assets/images/thumbnails/programming/default.jpg"
+}
+
+# 以下の部分を修正（ファイル生成部分）
+# thumbnail_path を取得
+thumbnail_path = category_thumbnails.get(example['category'], "/assets/images/thumbnails/default-thumb.jpg")
+
+# 記事生成部分
+with open(filename, 'w', encoding='utf-8') as f:
+    f.write(f"""---
+layout: post
+title: "{example['title']}"
+date: {current_date.strftime('%Y-%m-%d %H:%M:%S +0900')}
+categories: {example['category']}
+tags: [{tags_formatted}]
+thumbnail: {thumbnail_path}
+---
+
+{content}
+""")
