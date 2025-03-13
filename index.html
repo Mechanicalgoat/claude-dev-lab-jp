@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>資料作成 - 企画書・報告書作成フレームワーク</title>
+    <!-- ファビコン設定 -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>📄</text></svg>" type="image/svg+xml">
+    <style>
+        :root {
+            --primary-color: #1a73e8;          /* 基本の青 */
+            --primary-dark: #0d47a1;           /* 濃い青 */
+            --primary-light: #4285f4;          /* 明るい青 */
+            --hover-bg-color: #e8f0fe;         /* ホバー時の薄い青色背景 */
+            --hover-text-color: #1a73e8;       /* ホバー時のテキスト色 */
+            --text-on-primary: #ffffff;        /* 青背景上のテキスト */
+            --text-primary: #202124;           /* 主要テキスト色 */
+            --text-secondary: #5f6368;         /* 二次テキスト色 */
+            --border-color: #dadce0;           /* 境界線の色 */
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Meiryo UI', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-primary);
+            background-color: #f8f9fa;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: var(--text-on-primary);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .main-header {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-container {
+            margin-right: 20px;
+        }
+
+        .title-container h1 {
+            margin: 0;
+            font-size: 1.8rem;
+        }
+
+        .title-container p {
+            margin: 0.5rem 0 0;
+            font-size: 1rem;
+        }
+
+        .article-list {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .article-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .article-card:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .article-date {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin: 1rem 1.5rem 0.5rem;
+        }
+
+        .article-title {
+            padding: 0.5rem 1.5rem 1.5rem;
+        }
+
+        .article-title a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 1.3rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .article-title a:hover {
+            color: var(--primary-color);
+        }
+
+        .category-list {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            margin-top: 2rem;
+        }
+
+        .category-list h2 {
+            padding: 1rem 1.5rem;
+            margin: 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .category-items {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .category-items li {
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .category-items li:last-child {
+            border-bottom: none;
+        }
+
+        .category-items a {
+            display: block;
+            padding: 0.8rem 1.5rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        /* ホバー時のスタイルを修正 - 背景を薄い青に、文字を濃い青に */
+        .category-items a:hover {
+            background-color: var(--hover-bg-color); /* 薄い青色背景 */
+            color: var(--hover-text-color);          /* 濃い青色テキスト */
+        }
+
+        /* 青背景のセクション（ヘッダーなど）用 */
+        .blue-section {
+            background-color: var(--primary-color);
+            color: var(--text-on-primary);
+            padding: 2rem 0;
+        }
+
+        .blue-section h2 {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* レスポンシブデザイン */
+        @media (max-width: 768px) {
+            .main-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .logo-container {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+            
+            .title-container h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="main-header">
+            <div class="logo-container">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14 2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.9 22 6 22H18C19.1 22 20 21.1 20 20V8L14 2Z" fill="white"/>
+                    <path d="M14 2V8H20L14 2Z" fill="#E3F2FD"/>
+                    <path d="M16 13H8V15H16V13Z" fill="#90CAF9"/>
+                    <path d="M16 17H8V19H16V17Z" fill="#90CAF9"/>
+                    <path d="M10 9H8V11H10V9Z" fill="#90CAF9"/>
+                </svg>
+            </div>
+            <div class="title-container">
+                <h1>資料作成</h1>
+                <p>企画書・報告書・技術文書の品質と作成効率を向上させる体系的フレームワーク</p>
+            </div>
+        </div>
+    </header>
+
+    <div class="article-list">
+        <h2>記事一覧</h2>
+        
+        <div class="article-card">
+            <div class="article-date">2025.03.11</div>
+            <div class="article-title">
+                <a href="#">レポート・論文作成のためのClaude活用テクニック</a>
+            </div>
+        </div>
+        
+        <div class="article-card">
+            <div class="article-date">2025.03.11</div>
+            <div class="article-title">
+                <a href="#">企画書・提案書作成を効率化するClaude活用法</a>
+            </div>
+        </div>
+        
+        <div class="category-list">
+            <h2>カテゴリ一覧</h2>
+            <ul class="category-items">
+                <li><a href="#">企画書・提案書</a></li>
+                <li><a href="#">レポート・論文</a></li>
+                <li><a href="#">技術文書</a></li>
+                <li><a href="#">プレゼンテーション</a></li>
+                <li><a href="#">ビジネス文書</a></li>
+                <li><a href="#">AI活用術</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
