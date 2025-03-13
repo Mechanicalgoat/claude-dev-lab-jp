@@ -1,46 +1,61 @@
 <footer class="site-footer">
-  <div class="container">
-    <div class="row">
-      <div class="col col-md-4 mb-4">
-        <h2>Claude実践ラボ</h2>
-        <p>Claudeを活用した資料作成・プログラミング・サービス開発の実践ガイド</p>
-        <div class="social-links">
-          <a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener" class="social-link">
-            <i class="fab fa-github"></i>
-          </a>
-          <a href="{{ site.baseurl }}/feed.xml" target="_blank" rel="noopener" class="social-link">
-            <i class="fas fa-rss"></i>
-          </a>
+  <div class="footer-main">
+    <div class="container">
+      <div class="row">
+        <div class="col col-md-4 mb-4">
+          <div class="footer-branding">
+            <div class="footer-logo">
+              <span class="site-logo">C</span>
+              <span class="site-name">Claude実践ラボ</span>
+            </div>
+            <p class="footer-desc">ビジネスと開発のプロフェッショナルのための<br>Claude AI活用プラットフォーム</p>
+            <div class="social-links">
+              <a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener" class="social-link">
+                <i class="fab fa-github"></i>
+              </a>
+              <a href="{{ site.baseurl }}/feed.xml" target="_blank" rel="noopener" class="social-link">
+                <i class="fas fa-rss"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col col-md-4 mb-4">
+          <div class="footer-nav">
+            <h3>サイトマップ</h3>
+            <ul class="footer-links">
+              <li><a href="{{ site.baseurl }}/">ホーム</a></li>
+              <li><a href="{{ site.baseurl }}/about/">サイトについて</a></li>
+              <li><a href="{{ site.baseurl }}/categories/">カテゴリ一覧</a></li>
+              <li><a href="{{ site.baseurl }}/tags/">タグ一覧</a></li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="col col-md-4 mb-4">
+          <div class="footer-categories">
+            <h3>カテゴリ</h3>
+            <ul class="footer-links">
+              {% for category in site.categories limit:5 %}
+                <li><a href="{{ site.baseurl }}/categories/#{{ category[0] | slugify }}">{{ category[0] }}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
         </div>
       </div>
-      
-      <div class="col col-md-4 mb-4">
-        <h2>サイトマップ</h2>
-        <ul class="footer-links">
-          <li><a href="{{ site.baseurl }}/">ホーム</a></li>
-          <li><a href="{{ site.baseurl }}/about/">サイトについて</a></li>
-          <li><a href="{{ site.baseurl }}/categories/">カテゴリ一覧</a></li>
-          <li><a href="{{ site.baseurl }}/tags/">タグ一覧</a></li>
-        </ul>
-      </div>
-      
-      <div class="col col-md-4 mb-4">
-        <h2>カテゴリ</h2>
-        <ul class="footer-links">
-          {% for category in site.categories %}
-            <li><a href="{{ site.baseurl }}/categories/#{{ category[0] | slugify }}">{{ category[0] }}</a></li>
-          {% endfor %}
-        </ul>
-      </div>
     </div>
-    
-    <div class="footer-bottom">
-      <div class="copyright">
-        &copy; {{ site.time | date: '%Y' }} Claude実践ラボ
-      </div>
-      <div class="powered-by">
-        Powered by <a href="https://jekyllrb.com/" target="_blank" rel="noopener">Jekyll</a>
-        and <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a>
+  </div>
+  
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="footer-bottom-inner">
+        <div class="copyright">
+          &copy; {{ site.time | date: '%Y' }} Claude実践ラボ
+        </div>
+        <div class="powered-by">
+          Powered by <a href="https://jekyllrb.com/" target="_blank" rel="noopener">Jekyll</a>
+          and <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a>
+        </div>
       </div>
     </div>
   </div>
@@ -49,94 +64,83 @@
 <style>
   .site-footer {
     background-color: var(--light-bg);
-    padding: 60px 0 30px;
     margin-top: 80px;
     border-top: 1px solid var(--border-color);
   }
   
-  .site-footer h2 {
-    font-size: 1.3em;
-    margin-top: 0;
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid rgba(67, 97, 238, 0.2);
-    color: var(--dark-text);
+  .footer-main {
+    padding: 60px 0 30px;
   }
   
-  .site-footer p {
+  .footer-branding {
+    margin-bottom: 20px;
+  }
+  
+  .footer-logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .footer-logo .site-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    font-weight: 700;
+    margin-right: 12px;
+    font-size: 1.2em;
+  }
+  
+  .footer-logo .site-name {
+    font-size: 1.3em;
+    font-weight: 700;
+    color: var(--dark-text);
+    letter-spacing: -0.01em;
+  }
+  
+  .footer-desc {
     color: var(--medium-text);
+    font-size: 0.95em;
+    line-height: 1.6;
     margin-bottom: 20px;
   }
   
   .social-links {
     display: flex;
-    gap: 15px;
+    gap: 12px;
   }
   
   .social-link {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
-    background-color: #fff;
+    width: 36px;
+    height: 36px;
+    background-color: white;
     color: var(--primary-color);
     border-radius: 50%;
-    font-size: 1.2em;
+    font-size: 1.1em;
     transition: all 0.2s ease;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
   }
   
   .social-link:hover {
     background-color: var(--primary-color);
-    color: #fff;
+    color: white;
     transform: translateY(-3px);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--shadow-md);
   }
   
-  .footer-links {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  .footer-nav, .footer-categories {
+    margin-bottom: 20px;
   }
   
-  .footer-links li {
-    margin-bottom: 10px;
-  }
-  
-  .footer-links a {
-    color: var(--medium-text);
-    text-decoration: none;
-    transition: color 0.2s ease;
-    display: block;
-    padding: 5px 0;
-  }
-  
-  .footer-links a:hover {
-    color: var(--primary-color);
-    padding-left: 5px;
-  }
-  
-  .footer-bottom {
-    margin-top: 40px;
-    padding-top: 20px;
-    border-top: 1px solid var(--border-color);
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    font-size: 0.9em;
-    color: var(--light-text);
-  }
-  
-  .powered-by a {
-    color: var(--medium-text);
-  }
-  
-  @media (max-width: 768px) {
-    .footer-bottom {
-      flex-direction: column;
-      gap: 10px;
-      text-align: center;
-    }
-  }
-</style>
+  .site-footer h3 {
+    font-size: 1.1em;
+    margin
