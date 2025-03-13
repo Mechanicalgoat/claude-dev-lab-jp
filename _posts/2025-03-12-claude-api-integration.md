@@ -4,6 +4,7 @@ title: "既存サービスへのClaude API連携実装ガイド"
 date: 2025-03-12 13:39:18 +0900
 categories: サービス開発
 tags: ["API連携", "システム開発", "実装例"]
+thumbnail: /assets/images/thumbnails/programming-thumb.png
 ---
 
 # 既存サービスへのClaude API連携実装ガイド
