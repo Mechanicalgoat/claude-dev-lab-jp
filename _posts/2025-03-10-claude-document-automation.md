@@ -4,7 +4,7 @@ title: "ビジネス文書の自動生成：Claude APIでドキュメント作�
 date: 2025-03-10 10:00:00 +0900
 categories: 資料作成
 tags: ["API活用", "自動化", "テンプレート"]
-thumbnail: /assets/images/thumbnails/document/default.jpg
+thumbnail: /assets/images/thumbnails/document/default.png
 ---
 ## ビジネス文書作成の自動化がもたらす効果
 
