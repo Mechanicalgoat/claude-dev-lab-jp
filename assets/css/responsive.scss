@@ -1,15 +1,13 @@
 ---
-# レスポンシブスタイル
+# Only the main Sass file needs front matter (the dashes are enough)
 ---
----
-# グローバルなレスポンシブ設定
----
+
+// レスポンシブスタイル
+// グローバルなレスポンシブ設定
 
 // 全ての画像をレスポンシブ対応
 img {
-  max-width: 100%;
-  height: auto;
-  display: block;
+  // ...
 }
 
 // 追加のブレークポイント設定
