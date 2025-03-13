@@ -14,6 +14,13 @@ def slugify(text):
     return slug
 
 def generate_content():
+    # カテゴリごとのデフォルトサムネイル（PNG形式）
+    category_thumbnails = {
+        "資料作成": "/assets/images/thumbnails/document-thumb.png",
+        "サービス開発": "/assets/images/thumbnails/service-thumb.png",
+        "プログラミング": "/assets/images/thumbnails/programming-thumb.png"
+    }
+    
     # 環境変数からAPIキーを取得
     api_key = os.environ.get('CLAUDE_API_KEY')
     if not api_key:
@@ -129,6 +136,9 @@ URL: {example.get('source_url', 'なし')}
             # タグを適切な形式に変換
             tags_formatted = ', '.join([f'"{tag}"' for tag in example['tags']])
             
+            # カテゴリに応じたサムネイルパスを取得、なければデフォルト
+            thumbnail_path = category_thumbnails.get(example['category'], "/assets/images/thumbnails/default-thumb.png")
+            
             with open(filename, 'w', encoding='utf-8') as f:
                 f.write(f"""---
 layout: post
@@ -136,6 +146,7 @@ title: "{example['title']}"
 date: {current_date.strftime('%Y-%m-%d %H:%M:%S +0900')}
 categories: {example['category']}
 tags: [{tags_formatted}]
+thumbnail: {thumbnail_path}
 ---
 
 {content}
@@ -161,29 +172,3 @@ tags: [{tags_formatted}]
 
 if __name__ == "__main__":
     generate_content()
-# 既存のスクリプトに以下のコードを追加
-
-# カテゴリごとのデフォルトサムネイル（PNG形式）
-category_thumbnails = {
-    "資料作成": "/assets/images/thumbnails/document/default.png",
-    "サービス開発": "/assets/images/thumbnails/service/default.png",
-    "プログラミング": "/assets/images/thumbnails/programming/default.png"
-}
-
-# 以下の部分を修正（ファイル生成部分）
-# thumbnail_path を取得
-thumbnail_path = category_thumbnails.get(example['category'], "/assets/images/thumbnails/default-thumb.png")
-
-# 記事生成部分
-with open(filename, 'w', encoding='utf-8') as f:
-    f.write(f"""---
-layout: post
-title: "{example['title']}"
-date: {current_date.strftime('%Y-%m-%d %H:%M:%S +0900')}
-categories: {example['category']}
-tags: [{tags_formatted}]
-thumbnail: {thumbnail_path}
----
-
-{content}
-""")
