@@ -6,8 +6,7 @@ title: ホーム
 <div class="home-header">
   <div class="container">
     <h1>Claude実践ラボ</h1>
-    <p class="lead mb-3">ビジネスと開発のプロフェッショナルのための<br>戦略的AI活用プラットフォーム</p>
-    <p class="mb-4">効率化と価値創出を実現する実践メソッドとプロンプト設計</p>
+    <p class="lead mb-4">ビジネスと開発のプロフェッショナルのためのAI活用プラットフォーム</p>
     <div class="cta-buttons">
       <a href="{{ site.baseurl }}/categories/" class="btn btn-primary">ソリューション一覧</a>
       <a href="{{ site.baseurl }}/about/" class="btn btn-outline">詳細を確認</a>
@@ -16,48 +15,38 @@ title: ホーム
 </div>
 
 <div class="container">
-  <section class="site-features mb-5">
-    <div class="section-header text-center mb-5">
-      <span class="section-tag">CORE VALUES</span>
-      <h2>ビジネス価値を創出する4つの強み</h2>
-      <p class="section-subtitle">企業の競争力を高めるClaudeの戦略的活用アプローチ</p>
+  <section class="core-strengths mb-5">
+    <div class="section-header text-center mb-4">
+      <h2>戦略的AI活用の4つの強み</h2>
     </div>
-    <div class="row">
-      <div class="col col-md-3 col-6 mb-4">
-        <div class="feature-card">
-          <div class="feature-icon">
-            <i class="fas fa-bullseye"></i>
-          </div>
-          <h3>実践志向</h3>
-          <p>理論だけでなく、即ビジネスに応用可能な戦略的プロンプト設計と実装手法</p>
+    <div class="strengths-container">
+      <div class="strength-item">
+        <div class="strength-icon">
+          <i class="fas fa-bullseye"></i>
         </div>
+        <h3>実践志向</h3>
+        <p>ビジネスに直結する実装手法</p>
       </div>
-      <div class="col col-md-3 col-6 mb-4">
-        <div class="feature-card">
-          <div class="feature-icon">
-            <i class="fas fa-code-branch"></i>
-          </div>
-          <h3>開発者視点</h3>
-          <p>エンタープライズ開発の要件を満たすアーキテクチャと拡張性を重視した設計</p>
+      <div class="strength-item">
+        <div class="strength-icon">
+          <i class="fas fa-code-branch"></i>
         </div>
+        <h3>開発者視点</h3>
+        <p>拡張性を重視した設計</p>
       </div>
-      <div class="col col-md-3 col-6 mb-4">
-        <div class="feature-card">
-          <div class="feature-icon">
-            <i class="fas fa-chart-line"></i>
-          </div>
-          <h3>検証主導</h3>
-          <p>定量的な効果測定と品質評価に基づく、信頼性の高い最適化アプローチ</p>
+      <div class="strength-item">
+        <div class="strength-icon">
+          <i class="fas fa-chart-line"></i>
         </div>
+        <h3>検証主導</h3>
+        <p>定量的な効果測定と最適化</p>
       </div>
-      <div class="col col-md-3 col-6 mb-4">
-        <div class="feature-card">
-          <div class="feature-icon">
-            <i class="fas fa-sync-alt"></i>
-          </div>
-          <h3>革新継続</h3>
-          <p>最新のAI技術動向と統合された、持続的な価値創出フレームワーク</p>
+      <div class="strength-item">
+        <div class="strength-icon">
+          <i class="fas fa-sync-alt"></i>
         </div>
+        <h3>革新継続</h3>
+        <p>最新技術による価値創出</p>
       </div>
     </div>
   </section>
@@ -66,7 +55,6 @@ title: ホーム
     <div class="section-header text-center mb-5">
       <span class="section-tag">EXPERTISE DOMAINS</span>
       <h2>専門分野別ソリューション</h2>
-      <p class="section-subtitle">業界とビジネス課題に特化した戦略的アプローチ</p>
     </div>
     <div class="row expertise-row">
       <div class="col col-md-4 mb-4">
@@ -132,10 +120,9 @@ title: ホーム
   </section>
 
   <section class="latest-posts mb-5">
-    <div class="section-header text-center mb-5">
+    <div class="section-header text-center mb-4">
       <span class="section-tag">INSIGHTS & RESOURCES</span>
       <h2>最新の実践知見</h2>
-      <p class="section-subtitle">ビジネス成果を生み出すためのAI活用事例と戦略</p>
     </div>
     
     <div class="post-grid">
@@ -173,7 +160,7 @@ title: ホーム
       <div class="row align-items-center">
         <div class="col col-md-8 mb-4 mb-md-0">
           <h2 class="mb-3">Claude AIの力で業務効率を革新しませんか？</h2>
-          <p class="mb-0">このサイトでは、ビジネスと開発のプロフェッショナルのためのClaudeの戦略的活用法を紹介しています。まずは、あなたの業務課題に最適なソリューションを探してみてください。</p>
+          <p class="mb-0">様々な業務シーンでClaudeを効果的に活用するための実践的な知識を提供しています。</p>
         </div>
         <div class="col col-md-4 text-center text-md-right">
           <a href="{{ site.baseurl }}/categories/" class="btn btn-primary">ソリューションを探す</a>
@@ -188,24 +175,24 @@ title: ホーム
 .home-header {
   position: relative;
   text-align: center;
-  padding: 90px 0 70px;
-  margin-bottom: 70px;
+  padding: 70px 0 50px;
+  margin-bottom: 50px;
   background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(59, 130, 246, 0.12));
-  border-radius: 0 0 60px 60px;
+  border-radius: 0 0 40px 40px;
 }
 
 .home-header h1 {
-  font-size: 2.7rem;
+  font-size: 2.5rem;
   font-weight: 800;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1rem;
   letter-spacing: -0.03em;
   color: var(--dark-text);
 }
 
 .home-header .lead {
-  font-size: 1.35rem;
+  font-size: 1.25rem;
   max-width: 700px;
-  margin: 0 auto 1rem;
+  margin: 0 auto 1.5rem;
   color: var(--medium-text);
   font-weight: 400;
   line-height: 1.5;
@@ -215,19 +202,17 @@ title: ホーム
   display: flex;
   gap: 15px;
   justify-content: center;
-  margin-top: 2rem;
 }
 
 .cta-buttons .btn {
   min-width: 180px;
-  padding: 12px 24px;
-  font-size: 1rem;
+  padding: 10px 20px;
   font-weight: 600;
   border-radius: 8px;
 }
 
 .section-header {
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
 }
 
 .section-tag {
@@ -235,81 +220,85 @@ title: ホーム
   font-size: 0.85rem;
   font-weight: 700;
   color: var(--primary-color);
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   letter-spacing: 1.5px;
 }
 
 .section-header h2 {
-  font-size: 2.2rem;
+  font-size: 2rem;
   margin-top: 0;
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.5rem;
   padding-bottom: 0;
   border-bottom: none;
   letter-spacing: -0.02em;
   line-height: 1.2;
 }
 
-.section-subtitle {
-  color: var(--medium-text);
-  font-size: 1.15rem;
-  max-width: 800px;
-  margin: 0 auto 1rem;
-  line-height: 1.5;
+/* 4つの強みセクションのコンパクト化 */
+.core-strengths {
+  padding: 20px 0 40px;
 }
 
-/* 特徴セクションの強化 */
-.site-features {
-  padding: 30px 0 60px;
+.strengths-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin: 0 auto;
+  max-width: 1000px;
 }
 
-.feature-card {
-  padding: 35px 28px;
-  border-radius: 16px;
+.strength-item {
+  flex: 1;
+  min-width: 220px;
+  max-width: 240px;
+  padding: 25px 15px;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-color);
   transition: all 0.3s ease;
-  border: 1px solid rgba(226, 232, 240, 0.8);
-  height: 100%;
 }
 
-.feature-card:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-lg);
-  border-color: rgba(226, 232, 240, 0.2);
+.strength-item:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
 }
 
-.feature-card .feature-icon {
-  background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(59, 130, 246, 0.18));
-  width: 76px;
-  height: 76px;
-  border-radius: 18px;
+.strength-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(59, 130, 246, 0.15));
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1.5rem;
-  font-size: 1.9rem;
+  margin: 0 auto 15px;
+  font-size: 1.6rem;
   color: var(--primary-color);
 }
 
-.feature-card h3 {
-  font-size: 1.35rem;
+.strength-item h3 {
+  font-size: 1.15rem;
   font-weight: 700;
-  margin-bottom: 15px;
+  margin-bottom: 8px;
   color: var(--dark-text);
-  letter-spacing: -0.01em;
 }
 
-.feature-card p {
+.strength-item p {
   color: var(--medium-text);
-  font-size: 0.95rem;
-  line-height: 1.6;
+  font-size: 0.9rem;
+  line-height: 1.4;
   margin-bottom: 0;
 }
 
 /* 専門分野別ソリューションの強化 */
 .category-section {
-  padding: 30px 0 60px;
+  padding: 30px 0 50px;
   background-color: var(--light-bg);
   border-radius: 30px;
-  margin: 70px 0;
+  margin: 50px 0;
 }
 
 .expertise-row {
@@ -339,22 +328,22 @@ title: ホーム
 .expertise-header {
   display: flex;
   align-items: center;
-  padding: 28px 28px 8px;
+  padding: 25px 25px 5px;
   position: relative;
 }
 
 .expertise-icon {
-  width: 65px;
-  height: 65px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   background: linear-gradient(135deg, rgba(37, 99, 235, 0.12), rgba(59, 130, 246, 0.2));
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 18px;
-  font-size: 1.5rem;
+  margin-right: 15px;
+  font-size: 1.4rem;
   color: var(--primary-color);
-  box-shadow: 0 6px 12px rgba(37, 99, 235, 0.12);
+  box-shadow: 0 5px 10px rgba(37, 99, 235, 0.1);
 }
 
 .expertise-label {
@@ -365,49 +354,49 @@ title: ホーム
   margin-bottom: 0;
   display: block;
   position: absolute;
-  right: 28px;
-  top: 28px;
+  right: 25px;
+  top: 25px;
   background-color: rgba(226, 232, 240, 0.5);
-  padding: 5px 10px;
-  border-radius: 12px;
+  padding: 4px 8px;
+  border-radius: 10px;
 }
 
 .expertise-card h3 {
-  padding: 0 28px;
-  margin: 8px 0 15px;
-  font-size: 1.5rem;
+  padding: 0 25px;
+  margin: 5px 0 12px;
+  font-size: 1.4rem;
   font-weight: 700;
   letter-spacing: -0.01em;
   color: var(--dark-text);
 }
 
 .expertise-divider {
-  width: 45px;
+  width: 40px;
   height: 3px;
   background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
-  margin: 0 28px 18px;
+  margin: 0 25px 15px;
   border-radius: 3px;
 }
 
 .expertise-card p {
-  padding: 0 28px;
+  padding: 0 25px;
   color: var(--medium-text);
-  font-size: 0.98rem;
+  font-size: 0.95rem;
   line-height: 1.6;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .expertise-points {
   list-style: none;
-  padding: 0 28px;
-  margin: 0 0 28px;
+  padding: 0 25px;
+  margin: 0 0 20px;
 }
 
 .expertise-points li {
   position: relative;
-  padding-left: 24px;
-  margin-bottom: 12px;
-  font-size: 0.95rem;
+  padding-left: 20px;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
   color: var(--medium-text);
 }
 
@@ -416,35 +405,34 @@ title: ホーム
   position: absolute;
   left: 0;
   top: 8px;
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   background-color: var(--primary-color);
   border-radius: 50%;
   opacity: 0.7;
 }
 
 .expertise-card .read-more {
-  margin: auto 28px 28px;
+  margin: auto 25px 25px;
   align-self: flex-start;
   font-weight: 600;
 }
 
 /* 最新記事セクションの強化 */
 .latest-posts {
-  padding: 30px 0 60px;
+  padding: 30px 0 50px;
 }
 
 .post-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 25px;
   margin: 0 auto;
-  max-width: 1140px;
 }
 
 .post-card {
   background-color: #fff;
-  border-radius: 16px;
+  border-radius: 14px;
   overflow: hidden;
   box-shadow: var(--shadow-md);
   border: 1px solid var(--border-color);
@@ -455,19 +443,19 @@ title: ホーム
 }
 
 .post-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-5px);
   box-shadow: var(--shadow-lg);
 }
 
 .post-card .post-thumbnail {
-  height: 200px;
+  height: 180px;
   margin-bottom: 0;
   border-radius: 0;
   box-shadow: none;
 }
 
 .post-card-content {
-  padding: 25px;
+  padding: 20px;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -477,30 +465,25 @@ title: ホーム
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
 }
 
 .post-meta .post-date {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: var(--light-text);
-  font-weight: 500;
 }
 
 .post-meta .post-category {
-  font-size: 0.8rem;
-  padding: 4px 12px;
-  border-radius: 20px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
+  font-size: 0.75rem;
+  padding: 3px 10px;
+  border-radius: 15px;
 }
 
 .post-card h3 {
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   line-height: 1.4;
   margin-top: 0;
-  margin-bottom: 15px;
-  font-weight: 700;
-  letter-spacing: -0.01em;
+  margin-bottom: 10px;
 }
 
 .post-title-link {
@@ -515,87 +498,69 @@ title: ホーム
 }
 
 .post-excerpt {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: var(--medium-text);
   line-height: 1.6;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   flex-grow: 1;
 }
 
 /* CTAセクションの強化 */
 .cta-section {
-  margin: 70px 0;
+  margin: 50px 0;
 }
 
 .cta-card {
   background: linear-gradient(135deg, rgba(37, 99, 235, 0.05), rgba(59, 130, 246, 0.08));
-  padding: 50px;
-  border-radius: 20px;
+  padding: 40px;
+  border-radius: 16px;
   border: 1px solid rgba(37, 99, 235, 0.08);
   box-shadow: var(--shadow-sm);
 }
 
 .cta-card h2 {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   margin-top: 0;
   padding-bottom: 0;
   border-bottom: none;
-  letter-spacing: -0.02em;
   line-height: 1.3;
-  color: var(--dark-text);
 }
 
 .cta-card p {
-  font-size: 1.1rem;
+  font-size: 1rem;
   line-height: 1.6;
   color: var(--medium-text);
 }
 
 .cta-card .btn {
-  padding: 12px 28px;
+  padding: 10px 25px;
   font-weight: 600;
-  font-size: 1rem;
-  border-radius: 8px;
-  min-width: 200px;
+  min-width: 180px;
 }
 
 /* レスポンシブ調整 */
 @media (max-width: 992px) {
-  .home-header {
-    padding: 70px 0 50px;
-    margin-bottom: 50px;
-  }
-  
   .home-header h1 {
-    font-size: 2.3rem;
+    font-size: 2.2rem;
   }
   
   .home-header .lead {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
   }
   
   .section-header h2 {
-    font-size: 1.9rem;
+    font-size: 1.8rem;
   }
   
-  .section-subtitle {
-    font-size: 1.05rem;
-  }
-  
-  .post-grid {
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  }
-  
-  .cta-card {
-    padding: 40px 30px;
+  .strength-item {
+    min-width: 200px;
   }
 }
 
 @media (max-width: 768px) {
   .home-header {
-    padding: 60px 0 40px;
-    margin-bottom: 40px;
-    border-radius: 0 0 40px 40px;
+    padding: 50px 0 35px;
+    margin-bottom: 35px;
   }
   
   .home-header h1 {
@@ -604,69 +569,56 @@ title: ホーム
   
   .home-header .lead {
     font-size: 1.1rem;
+    margin-bottom: 1.2rem;
   }
   
-  .feature-card .feature-icon {
-    width: 65px;
-    height: 65px;
+  .strengths-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+  
+  .strength-item {
+    min-width: 0;
+    max-width: none;
+    width: 100%;
+    padding: 20px 15px;
+  }
+  
+  .strength-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+  }
+  
+  .strength-item h3 {
+    font-size: 1.05rem;
+    margin-bottom: 5px;
+  }
+  
+  .strength-item p {
+    font-size: 0.85rem;
+  }
+  
+  .section-header h2 {
     font-size: 1.6rem;
   }
   
-  .feature-card h3 {
-    font-size: 1.2rem;
-  }
-  
-  .feature-card p {
-    font-size: 0.9rem;
-  }
-  
-  .expertise-card {
-    margin-bottom: 25px;
-  }
-  
-  .expertise-icon {
-    width: 55px;
-    height: 55px;
-    font-size: 1.3rem;
-  }
-  
-  .expertise-card h3 {
-    font-size: 1.3rem;
-  }
-  
-  .expertise-points li {
-    font-size: 0.9rem;
-  }
-  
-  .post-grid {
-    grid-template-columns: 1fr;
-    max-width: 500px;
+  .cta-card {
+    padding: 30px 25px;
   }
   
   .cta-card h2 {
-    font-size: 1.6rem;
-  }
-  
-  .cta-card p {
-    font-size: 1rem;
-  }
-  
-  .section-header {
-    margin-bottom: 2rem;
-  }
-  
-  .category-section {
-    margin: 40px 0;
-    padding: 30px 0 40px;
-    border-radius: 20px;
+    font-size: 1.4rem;
   }
 }
 
 @media (max-width: 576px) {
   .home-header {
-    padding: 50px 0 40px;
+    padding: 40px 0 30px;
     margin-bottom: 30px;
-    border-radius: 0 0 30px 30px;
+    border-radius: 0 0 25px 25px;
   }
   
   .home-header h1 {
@@ -679,68 +631,46 @@ title: ホーム
   
   .cta-buttons {
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
+    max-width: 220px;
+    margin: 0 auto;
   }
   
   .cta-buttons .btn {
     width: 100%;
-    min-width: 0;
   }
   
   .section-header h2 {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
   }
   
-  .section-subtitle {
-    font-size: 0.95rem;
+  .strengths-container {
+    grid-template-columns: 1fr;
+    max-width: 260px;
+    margin: 0 auto;
   }
   
-  .feature-card, .expertise-card {
-    padding: 25px 20px;
-  }
-  
-  .expertise-header {
-    padding: 25px 20px 5px;
-  }
-  
-  .expertise-label {
-    right: 20px;
-    top: 20px;
-    font-size: 0.7rem;
-  }
-  
-  .expertise-card h3 {
-    padding: 0 20px;
-    font-size: 1.2rem;
-  }
-  
-  .expertise-divider {
-    margin: 0 20px 15px;
-  }
-  
-  .expertise-card p {
-    padding: 0 20px;
-    font-size: 0.9rem;
-  }
-  
-  .expertise-points {
-    padding: 0 20px;
-  }
-  
-  .expertise-card .read-more {
-    margin: auto 20px 20px;
+  .strength-item {
+    max-width: none;
+    padding: 18px 15px;
   }
   
   .cta-card {
-    padding: 30px 20px;
+    padding: 25px 20px;
   }
   
   .cta-card h2 {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
   }
   
   .cta-card p {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
+  }
+  
+  .category-section {
+    padding: 25px 0 35px;
+    margin: 30px 0;
+    border-radius: 20px;
   }
 }
 </style>
