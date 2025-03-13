@@ -40,7 +40,7 @@ liquid:
   error_mode: strict
 # 画像関連設定
 default_image: "/claude-dev-lab-jp/assets/images/og-default.jpg"
-default_thumbnail: "/claude-dev-lab-jp/assets/images/thumbnails/default-thumb.jpg"
+default_thumbnail: "/claude-dev-lab-jp/assets/images/thumbnails/default-thumb.png"
 logo_image: "/claude-dev-lab-jp/assets/images/logo.png"
 
 # 画像サイズ設定
