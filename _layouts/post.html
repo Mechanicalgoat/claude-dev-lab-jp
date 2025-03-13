@@ -20,21 +20,21 @@ layout: default
       {% endfor %}
     </div>
     
-    {% if page.thumbnail or page.image %}
-    <div class="post-thumbnail">
-      <img src="{{ page.thumbnail | default: page.image | default: site.default_thumbnail | relative_url }}" 
-           alt="{{ page.title }}" loading="lazy">
+{% if page.thumbnail or page.image %}
+<div class="post-thumbnail">
+  <img src="{{ site.baseurl }}{% if page.thumbnail %}{{ page.thumbnail }}{% elsif page.image %}{{ page.image }}{% else %}{{ site.default_thumbnail }}{% endif %}" 
+       alt="{{ page.title }}" loading="lazy">
+</div>
+{% else %}
+  {% if site.auto_thumbnail %}
+  <div class="post-thumbnail">
+    <div class="thumbnail-placeholder">
+      <div class="icon"><i class="fas fa-file-alt"></i></div>
+      <div>{{ page.categories }}</div>
     </div>
-    {% else %}
-      {% if site.auto_thumbnail %}
-      <div class="post-thumbnail">
-        <div class="thumbnail-placeholder">
-          <div class="icon"><i class="fas fa-file-alt"></i></div>
-          <div>{{ page.categories }}</div>
-        </div>
-      </div>
-      {% endif %}
-    {% endif %}
+  </div>
+  {% endif %}
+{% endif %}
   </div>
 </header>
 
