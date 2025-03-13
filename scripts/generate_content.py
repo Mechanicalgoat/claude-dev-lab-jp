@@ -163,16 +163,16 @@ if __name__ == "__main__":
     generate_content()
 # 既存のスクリプトに以下のコードを追加
 
-# カテゴリごとのデフォルトサムネイル
+# カテゴリごとのデフォルトサムネイル（PNG形式）
 category_thumbnails = {
-    "資料作成": "/assets/images/thumbnails/document/default.jpg",
-    "サービス開発": "/assets/images/thumbnails/service/default.jpg",
-    "プログラミング": "/assets/images/thumbnails/programming/default.jpg"
+    "資料作成": "/assets/images/thumbnails/document/default.png",
+    "サービス開発": "/assets/images/thumbnails/service/default.png",
+    "プログラミング": "/assets/images/thumbnails/programming/default.png"
 }
 
 # 以下の部分を修正（ファイル生成部分）
 # thumbnail_path を取得
-thumbnail_path = category_thumbnails.get(example['category'], "/assets/images/thumbnails/default-thumb.jpg")
+thumbnail_path = category_thumbnails.get(example['category'], "/assets/images/thumbnails/default-thumb.png")
 
 # 記事生成部分
 with open(filename, 'w', encoding='utf-8') as f:
