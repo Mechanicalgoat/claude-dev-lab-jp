@@ -6,8 +6,8 @@ title: ホーム
 <div class="home-header">
   <div class="container">
     <h1 class="mb-3">Claude実践ラボ</h1>
-    <p class="lead mb-4">プログラミング・資料作成・サービス開発における<br>Claude AIの実践的活用術を紹介します</p>
-    <p class="mb-0">即使える事例とプロンプトで、あなたの開発・制作を加速させましょう</p>
+    <p class="lead mb-4">プログラミング・資料作成・サービス開発における<br>Claude AIの実践的活用術</p>
+    <p class="mb-0">即使える事例とプロンプトで、開発・制作を加速</p>
   </div>
 </div>
 
@@ -15,32 +15,32 @@ title: ホーム
   <section class="site-features mb-5">
     <h2 class="text-center mb-4">サイトの特徴</h2>
     <div class="row">
-      <div class="col col-md-6 mb-4">
+      <div class="col col-md-3 col-6 mb-4">
         <div class="feature-card content-card">
           <div class="feature-icon">📊</div>
           <h3>実践重視</h3>
-          <p>即現場で使える具体的なプロンプトとテクニックを紹介。理論よりも実践に重点を置いています。</p>
+          <p>現場で即活用できる具体的なプロンプトとテクニック</p>
         </div>
       </div>
-      <div class="col col-md-6 mb-4">
+      <div class="col col-md-3 col-6 mb-4">
         <div class="feature-card content-card">
           <div class="feature-icon">💻</div>
           <h3>開発者視点</h3>
-          <p>プログラミングとサービス開発に特化した活用法をエンジニア目線で解説しています。</p>
+          <p>エンジニア目線での実装例とアプローチ</p>
         </div>
       </div>
-      <div class="col col-md-6 mb-4">
+      <div class="col col-md-3 col-6 mb-4">
         <div class="feature-card content-card">
           <div class="feature-icon">✅</div>
           <h3>実績ベース</h3>
-          <p>実際の使用例と効果測定に基づく信頼できる情報のみを厳選して掲載しています。</p>
+          <p>実際の使用例と効果測定に基づく信頼性</p>
         </div>
       </div>
-      <div class="col col-md-6 mb-4">
+      <div class="col col-md-3 col-6 mb-4">
         <div class="feature-card content-card">
           <div class="feature-icon">🔄</div>
-          <h3>常時更新</h3>
-          <p>最新のClaude機能と活用法を定期的に更新し、常に最新の情報をお届けします。</p>
+          <h3>定期更新</h3>
+          <p>最新のClaude機能と活用法を継続的に提供</p>
         </div>
       </div>
     </div>
@@ -53,8 +53,8 @@ title: ホーム
         <div class="category-card content-card">
           <div class="category-icon">🧩</div>
           <h3>プログラミング</h3>
-          <p>コード生成、デバッグ支援、リファクタリングなど、開発者のためのClaude活用法</p>
-          <a href="{{ site.baseurl }}/categories/#プログラミング" class="read-more">記事一覧を見る</a>
+          <p>コード生成・デバッグ・リファクタリングのAI活用法</p>
+          <a href="{{ site.baseurl }}/categories/#プログラミング" class="read-more">記事一覧</a>
         </div>
       </div>
       
@@ -62,8 +62,8 @@ title: ホーム
         <div class="category-card content-card">
           <div class="category-icon">📝</div>
           <h3>資料作成</h3>
-          <p>企画書、プレゼン資料、マニュアルなど、ビジネス文書作成の効率化テクニック</p>
-          <a href="{{ site.baseurl }}/categories/#資料作成" class="read-more">記事一覧を見る</a>
+          <p>企画書・プレゼン資料・マニュアルの効率化</p>
+          <a href="{{ site.baseurl }}/categories/#資料作成" class="read-more">記事一覧</a>
         </div>
       </div>
       
@@ -71,8 +71,8 @@ title: ホーム
         <div class="category-card content-card">
           <div class="category-icon">🚀</div>
           <h3>サービス開発</h3>
-          <p>Claude APIの実装例、サービス連携、自動化ソリューションの構築方法</p>
-          <a href="{{ site.baseurl }}/categories/#サービス開発" class="read-more">記事一覧を見る</a>
+          <p>API連携・自動化ソリューションの構築方法</p>
+          <a href="{{ site.baseurl }}/categories/#サービス開発" class="read-more">記事一覧</a>
         </div>
       </div>
     </div>
@@ -89,7 +89,7 @@ title: ホーム
             <span class="post-category">{{ post.categories }}</span>
           </div>
           <div class="post-excerpt">
-            {{ post.excerpt | strip_html | truncatewords: 30 }}
+            {{ post.excerpt | strip_html | truncatewords: 20 }}
           </div>
           <a href="{{ post.url | relative_url }}" class="read-more">続きを読む</a>
         </div>
@@ -103,8 +103,8 @@ title: ホーム
 
 <style>
 .feature-icon, .category-icon {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+  font-size: 2rem;
+  margin-bottom: 0.8rem;
   display: inline-block;
 }
 
@@ -112,34 +112,38 @@ title: ホーム
   height: 100%;
   display: flex;
   flex-direction: column;
+  padding: 15px;
 }
 
 .category-card h3 {
   margin-top: 0;
+  font-size: 1.2rem;
 }
 
 .category-card p {
   flex-grow: 1;
+  font-size: 0.95rem;
+  margin-bottom: 10px;
 }
 
 .home-header {
   position: relative;
   text-align: center;
-  padding: 80px 0;
-  margin-bottom: 60px;
+  padding: 60px 0;
+  margin-bottom: 40px;
   background: linear-gradient(135deg, rgba(67, 97, 238, 0.1) 0%, rgba(72, 149, 239, 0.15) 100%);
   border-radius: 0 0 30px 30px;
 }
 
 .home-header h1 {
-  font-size: 2.8rem;
+  font-size: 2.5rem;
   font-weight: 800;
   color: var(--dark-text);
   margin-top: 0;
 }
 
 .home-header .lead {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   max-width: 800px;
   margin: 0 auto;
   color: var(--medium-text);
@@ -147,15 +151,45 @@ title: ホーム
 
 @media (max-width: 768px) {
   .home-header {
-    padding: 50px 20px;
+    padding: 40px 15px;
+    margin-bottom: 30px;
   }
   
   .home-header h1 {
-    font-size: 2.2rem;
+    font-size: 2rem;
   }
   
   .home-header .lead {
-    font-size: 1.1rem;
+    font-size: 1rem;
+  }
+  
+  .feature-card, .category-card {
+    padding: 12px;
+  }
+  
+  .feature-icon, .category-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .feature-card h3, .category-card h3 {
+    font-size: 1rem;
+    margin-bottom: 5px;
+  }
+  
+  .feature-card p, .category-card p {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+  }
+}
+
+@media (max-width: 576px) {
+  .home-header h1 {
+    font-size: 1.8rem;
+  }
+  
+  .read-more {
+    font-size: 0.9rem;
   }
 }
 </style>
