@@ -115,3 +115,177 @@ img {
   padding-left: 10px;
   padding-right: 10px;
 }
+/* グローバルレスポンシブ設定 */
+
+/* グリッドシステム改善 */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.col {
+  position: relative;
+  width: 100%;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+/* より小さなデバイス向けカラム設定 */
+.col-6 {
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+
+.col-12 {
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+
+/* タブレット向け */
+@media (min-width: 768px) {
+  .col-md-3 {
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+  
+  .col-md-4 {
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+  }
+  
+  .col-md-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+  
+  .col-md-8 {
+    flex: 0 0 66.666667%;
+    max-width: 66.666667%;
+  }
+}
+
+/* 基本的なボックススタイリング */
+.card, .content-card, .feature-card, .category-card {
+  height: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* モバイル向けのフォントサイズ調整 */
+@media (max-width: 768px) {
+  body {
+    font-size: 15px;
+  }
+  
+  h1 {
+    font-size: 2em;
+  }
+  
+  h2 {
+    font-size: 1.5em;
+  }
+  
+  h3 {
+    font-size: 1.2em;
+  }
+  
+  .container {
+    padding: 0 15px;
+  }
+  
+  .post-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* さらに小さいスクリーン向け */
+@media (max-width: 576px) {
+  body {
+    font-size: 14px;
+  }
+  
+  h1 {
+    font-size: 1.8em;
+  }
+  
+  h2 {
+    font-size: 1.3em;
+  }
+  
+  h3 {
+    font-size: 1.1em;
+  }
+  
+  .feature-card h3, .category-card h3 {
+    font-size: 1rem;
+  }
+  
+  .post-tag {
+    font-size: 0.75em;
+    padding: 3px 10px;
+  }
+}
+
+/* サムネイル調整 */
+.post-thumbnail {
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 576px) {
+  .post-thumbnail {
+    aspect-ratio: 16/9;
+  }
+}
+
+/* コンテンツカードのレスポンシブ調整 */
+.content-card {
+  padding: 20px;
+}
+
+@media (max-width: 768px) {
+  .content-card {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 576px) {
+  .content-card {
+    padding: 12px;
+  }
+}
+
+/* タグのレスポンシブ化 */
+.post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.post-tag {
+  margin-right: 0;
+  margin-bottom: 0;
+}
+
+/* ナビゲーションレスポンシブ化 */
+@media (max-width: 768px) {
+  .nav-links {
+    gap: 10px;
+  }
+  
+  .site-nav.nav-open {
+    width: 85%;
+  }
+}
+
+/* タッチ操作の改善 */
+@media (max-width: 768px) {
+  .page-link, .btn, .post-tag, .share-btn, .category-block, .tag-cloud-item {
+    padding: 8px 15px;
+  }
+  
+  .feature-card, .category-card, .post-item, .content-card {
+    transform: none !important;
+  }
+}
