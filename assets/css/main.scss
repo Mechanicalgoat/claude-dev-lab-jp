@@ -1,291 +1,471 @@
-/* main.scss に追加するレスポンシブ修正CSS */
+/* スタイリッシュなビジネステーマのCSS */
 
-/* 基本的なレスポンシブ設定 */
-html {
-  box-sizing: border-box;
+:root {
+  /* モダンでプロフェッショナルなカラーパレット */
+  --primary-color: #2563eb;      /* よりシャープなブルー */
+  --secondary-color: #1e40af;    /* ダークブルー */
+  --accent-color: #3b82f6;       /* ライトブルー */
+  --light-bg: #f8fafc;           /* 明るい背景色 */
+  --dark-text: #1e293b;          /* 濃い文字色 */
+  --medium-text: #475569;        /* 中間の文字色 */
+  --light-text: #64748b;         /* 軽い文字色 */
+  --border-color: #e2e8f0;       /* 境界線の色 */
+  --success-color: #10b981;      /* 成功色 */
+  --warning-color: #f59e0b;      /* 警告色 */
+  --info-color: #0ea5e9;         /* 情報色 */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
-*, *:before, *:after {
-  box-sizing: inherit;
+body {
+  font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--dark-text);
+  background-color: #fff;
+  margin: 0;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
+/* モダンなコンテナスタイル */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
 }
 
-/* メディアクエリの改善 */
+/* 洗練されたヘッダースタイル */
+.site-header {
+  background-color: #fff;
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+}
+
+.site-title {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--dark-text);
+  font-weight: 600;
+  font-size: 1.3em;
+  letter-spacing: -0.5px;
+}
+
+.site-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  font-weight: 700;
+  margin-right: 12px;
+  font-size: 1.3em;
+}
+
+/* ナビゲーションの洗練化 */
+.nav-links {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.page-link {
+  color: var(--medium-text);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95em;
+  position: relative;
+  padding: 6px 0;
+  transition: color 0.2s ease;
+}
+
+.page-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--primary-color);
+  transition: width 0.3s ease;
+}
+
+.page-link:hover {
+  color: var(--primary-color);
+}
+
+.page-link:hover::after {
+  width: 100%;
+}
+
+.page-link.highlight {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+.page-link.highlight:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+/* スタイリッシュなタイポグラフィ */
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 1.5em;
+  margin-bottom: 0.75em;
+  line-height: 1.3;
+  font-weight: 700;
+  color: var(--dark-text);
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: 2.25em;
+  margin-top: 0.5em;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 1.75em;
+  margin-top: 1.75em;
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid var(--border-color);
+}
+
+h3 {
+  font-size: 1.35em;
+  margin-top: 1.75em;
+}
+
+h4 {
+  font-size: 1.15em;
+}
+
+p {
+  margin-bottom: 1.5em;
+}
+
+/* モダンなカードスタイル */
+.content-card, .feature-card, .category-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: var(--shadow-md);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  height: 100%;
+  border: 1px solid var(--border-color);
+}
+
+.content-card:hover, .feature-card:hover, .category-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* 洗練されたホームページヘッダー */
+.home-header {
+  text-align: center;
+  padding: 80px 0 60px;
+  margin-bottom: 60px;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(59, 130, 246, 0.12));
+  border-radius: 0 0 20px 20px;
+}
+
+.home-header h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--dark-text);
+  margin-top: 0;
+  letter-spacing: -0.03em;
+  margin-bottom: 14px;
+}
+
+.home-header .lead {
+  font-size: 1.25rem;
+  max-width: 720px;
+  margin: 0 auto 14px;
+  color: var(--medium-text);
+  line-height: 1.5;
+}
+
+/* スタイリッシュなアイコン表示 */
+.feature-icon, .category-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(59, 130, 246, 0.15));
+  color: var(--primary-color);
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+}
+
+/* 洗練されたカードコンテンツ */
+.feature-card, .category-card {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.category-card h3, .feature-card h3 {
+  margin-top: 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin-bottom: 10px;
+}
+
+.category-card p, .feature-card p {
+  flex-grow: 1;
+  font-size: 0.95rem;
+  color: var(--medium-text);
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+/* 読みやすい記事スタイル */
+.post-content {
+  font-size: 1.05em;
+  line-height: 1.75;
+}
+
+.post-content h2 {
+  margin-top: 2em;
+  margin-bottom: 0.75em;
+  font-size: 1.65em;
+}
+
+.post-content h3 {
+  margin-top: 1.75em;
+  margin-bottom: 0.75em;
+  font-size: 1.35em;
+}
+
+/* ビジネスライクなタグとカテゴリ */
+.post-tag {
+  display: inline-block;
+  background-color: rgba(37, 99, 235, 0.08);
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 0.8em;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  border: 1px solid rgba(37, 99, 235, 0.1);
+}
+
+.post-tag:hover {
+  background-color: var(--primary-color);
+  color: #fff;
+  text-decoration: none;
+}
+
+.post-category {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 0.85em;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+/* モダンなボタンスタイル */
+.btn {
+  display: inline-block;
+  font-weight: 500;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  border: 1px solid transparent;
+  padding: 10px 18px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  border-radius: 6px;
+  transition: all 0.2s ease-in-out;
+  letter-spacing: 0.3px;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:hover {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+  color: #fff;
+  text-decoration: none;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-outline {
+  color: var(--primary-color);
+  background-color: transparent;
+  border-color: var(--primary-color);
+}
+
+.btn-outline:hover {
+  color: #fff;
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  text-decoration: none;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+/* スタイリッシュな「続きを読む」リンク */
+.read-more {
+  display: inline-flex;
+  align-items: center;
+  font-weight: 600;
+  color: var(--primary-color);
+  font-size: 0.9em;
+  
+  &:hover {
+    text-decoration: none;
+  }
+  
+  &::after {
+    content: '';
+    display: inline-block;
+    width: 18px;
+    height: 10px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='10' viewBox='0 0 18 10' fill='none'%3E%3Cpath d='M13 1L17 5M17 5L13 9M17 5H1' stroke='%232563eb' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-left: 6px;
+    transition: transform 0.2s ease;
+  }
+  
+  &:hover::after {
+    transform: translateX(4px);
+  }
+}
+
+/* 記事ヘッダーのスタイリッシュ化 */
+.post-header {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(59, 130, 246, 0.12));
+  padding: 60px 0 40px;
+  margin-bottom: 40px;
+}
+
+.post-title {
+  font-size: 2.2em;
+  line-height: 1.3;
+  margin-bottom: 24px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+/* サムネイルのモダン化 */
+.post-thumbnail {
+  margin-bottom: 24px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  position: relative;
+  aspect-ratio: 16 / 9;
+}
+
+.post-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+/* レスポンシブ対応 */
 @media (max-width: 768px) {
-  /* コンテナの調整 */
-  .container {
-    padding: 0 15px;
+  .home-header {
+    padding: 60px 0 40px;
   }
   
-  /* サムネイルの調整 */
-  .post-thumbnail {
-    margin-bottom: 15px;
+  .home-header h1 {
+    font-size: 2rem;
   }
   
-  /* タグのレイアウト修正 */
-  .post-tags {
-    margin-top: 10px;
-    margin-bottom: 15px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-  }
-  
-  .post-tag {
-    margin-right: 0;
-    margin-bottom: 0;
-  }
-  
-  /* ヘッダーの調整 */
-  .post-header {
-    padding: 30px 0 20px;
-  }
-  
-  /* カードのサイズ調整 */
-  .feature-card, .category-card {
-    padding: 15px;
+  .home-header .lead {
+    font-size: 1.1rem;
   }
   
   .feature-icon, .category-icon {
-    font-size: 1.8rem;
-    margin-bottom: 0.5rem;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
   }
   
-  /* ナビゲーション修正 */
-  .site-nav.nav-open {
-    width: 100%;
-    max-width: none;
+  .feature-card, .category-card {
+    padding: 20px;
+  }
+  
+  .post-title {
+    font-size: 1.75em;
   }
 }
 
 @media (max-width: 576px) {
-  /* さらに小さいスクリーン向け */
-  .post-title {
-    font-size: 1.5em;
+  .home-header {
+    padding: 50px 0 30px;
   }
   
   .home-header h1 {
-    font-size: 1.8rem;
+    font-size: 1.75rem;
   }
   
   .home-header .lead {
     font-size: 1rem;
   }
   
+  .feature-icon, .category-icon {
+    width: 45px;
+    height: 45px;
+    font-size: 1.3rem;
+  }
+  
   .feature-card, .category-card {
-    margin-bottom: 15px;
-  }
-}
-
-/* 記事ヘッダー内のタグ表示修正 */
-.post-header .post-tags {
-  margin-bottom: 25px;
-  z-index: 5;
-  position: relative;
-}
-
-/* サムネイルの位置調整 */
-.post-header .post-thumbnail {
-  margin-top: 0;
-  position: relative;
-  z-index: 1;
-}
-
-/* カード内容の簡略化対応 */
-.feature-card p, .category-card p {
-  margin-bottom: 10px;
-  line-height: 1.5;
-}
-
-.feature-icon, .category-icon {
-  margin-bottom: 0.5rem;
-}
-
-/* グリッドレイアウト改善 */
-.row {
-  margin-left: -10px;
-  margin-right: -10px;
-}
-
-.col {
-  padding-left: 10px;
-  padding-right: 10px;
-}
-/* グローバルレスポンシブ設定 */
-
-/* グリッドシステム改善 */
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  margin-right: -10px;
-  margin-left: -10px;
-}
-
-.col {
-  position: relative;
-  width: 100%;
-  padding-right: 10px;
-  padding-left: 10px;
-}
-
-/* より小さなデバイス向けカラム設定 */
-.col-6 {
-  flex: 0 0 50%;
-  max-width: 50%;
-}
-
-.col-12 {
-  flex: 0 0 100%;
-  max-width: 100%;
-}
-
-/* タブレット向け */
-@media (min-width: 768px) {
-  .col-md-3 {
-    flex: 0 0 25%;
-    max-width: 25%;
+    padding: 18px;
   }
   
-  .col-md-4 {
-    flex: 0 0 33.333333%;
-    max-width: 33.333333%;
-  }
-  
-  .col-md-6 {
-    flex: 0 0 50%;
-    max-width: 50%;
-  }
-  
-  .col-md-8 {
-    flex: 0 0 66.666667%;
-    max-width: 66.666667%;
-  }
-}
-
-/* 基本的なボックススタイリング */
-.card, .content-card, .feature-card, .category-card {
-  height: 100%;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* モバイル向けのフォントサイズ調整 */
-@media (max-width: 768px) {
-  body {
-    font-size: 15px;
-  }
-  
-  h1 {
-    font-size: 2em;
-  }
-  
-  h2 {
+  .post-title {
     font-size: 1.5em;
   }
   
-  h3 {
-    font-size: 1.2em;
-  }
-  
-  .container {
-    padding: 0 15px;
-  }
-  
-  .post-list {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* さらに小さいスクリーン向け */
-@media (max-width: 576px) {
-  body {
-    font-size: 14px;
-  }
-  
-  h1 {
-    font-size: 1.8em;
-  }
-  
-  h2 {
-    font-size: 1.3em;
-  }
-  
-  h3 {
-    font-size: 1.1em;
-  }
-  
-  .feature-card h3, .category-card h3 {
-    font-size: 1rem;
-  }
-  
-  .post-tag {
-    font-size: 0.75em;
-    padding: 3px 10px;
-  }
-}
-
-/* サムネイル調整 */
-.post-thumbnail {
-  width: 100%;
-  height: auto;
-}
-
-@media (max-width: 576px) {
-  .post-thumbnail {
-    aspect-ratio: 16/9;
-  }
-}
-
-/* コンテンツカードのレスポンシブ調整 */
-.content-card {
-  padding: 20px;
-}
-
-@media (max-width: 768px) {
-  .content-card {
-    padding: 15px;
-  }
-}
-
-@media (max-width: 576px) {
-  .content-card {
-    padding: 12px;
-  }
-}
-
-/* タグのレスポンシブ化 */
-.post-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.post-tag {
-  margin-right: 0;
-  margin-bottom: 0;
-}
-
-/* ナビゲーションレスポンシブ化 */
-@media (max-width: 768px) {
-  .nav-links {
-    gap: 10px;
-  }
-  
-  .site-nav.nav-open {
-    width: 85%;
-  }
-}
-
-/* タッチ操作の改善 */
-@media (max-width: 768px) {
-  .page-link, .btn, .post-tag, .share-btn, .category-block, .tag-cloud-item {
-    padding: 8px 15px;
-  }
-  
-  .feature-card, .category-card, .post-item, .content-card {
-    transform: none !important;
+  .btn {
+    padding: 8px 16px;
+    font-size: 0.9rem;
   }
 }
