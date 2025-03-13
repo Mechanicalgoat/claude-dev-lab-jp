@@ -4,7 +4,6 @@ title: "レポート・論文作成のためのClaude活用テクニック"
 date: 2025-03-11 13:37:24 +0900
 categories: 資料作成
 tags: ["学術", "論文", "研究"]
-thumbnail: {{ site.baseurl }}/assets/images/thumbnails/document/academic.png
 ---
 
 # レポート・論文作成のためのClaude活用テクニック
