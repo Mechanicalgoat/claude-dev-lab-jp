@@ -4,8 +4,8 @@ title: "Claudeを活用したコンテンツ自動生成サービス"
 date: 2025-03-12 13:39:10 +0900
 categories: サービス開発
 tags: ["コンテンツ作成", "マーケティング", "自動化"]
+thumbnail: /assets/images/thumbnails/service/content.jpg
 ---
-
 ## Claudeを活用したコンテンツ自動生成サービス
 
 ### 1. 導入
