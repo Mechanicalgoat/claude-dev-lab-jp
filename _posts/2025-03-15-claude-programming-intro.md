@@ -4,7 +4,6 @@ title: "Claudeを活用したプログラミング入門"
 date: 2025-03-15 13:00:00 +0900
 categories: プログラミング
 tags: ["コード生成", "デバッグ", "開発効率化"]
-thumbnail: {{ site.baseurl }}/assets/images/thumbnails/programming/default.png
 ---
 
 
